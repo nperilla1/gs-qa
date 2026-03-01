@@ -1,0 +1,61 @@
+{
+  "project": "",
+  "language": "",
+  "framework": "",
+  "test_runner": "",
+  "generated_at": "",
+  "sources_of_intent": [
+    {
+      "type": "claude-md | readme | api-route | pydantic-model | db-schema | test | docstring | validation | error-handling | config",
+      "path": "relative/path/to/file",
+      "confidence": "high | medium | low"
+    }
+  ],
+  "intended_behaviors": [
+    {
+      "id": "INT-001",
+      "description": "Human-readable description of what the code should do",
+      "source": "file:line or document section where this intent was discovered",
+      "confidence": "high | medium | low",
+      "priority": "P0 | P1 | P2 | P3",
+      "category": "security | data-integrity | core-journey | business-logic | edge-case",
+      "endpoints": ["/api/v1/example"],
+      "models": ["ModelName"],
+      "services": ["ServiceName"],
+      "tested": false,
+      "existing_tests": ["tests/test_example.py::test_function_name"]
+    }
+  ],
+  "user_journeys": [
+    {
+      "id": "UJ-001",
+      "name": "Short descriptive name for the journey",
+      "discovered_from": "source file or document",
+      "steps": [
+        "Step 1: User does X",
+        "Step 2: System responds with Y",
+        "Step 3: User sees Z"
+      ],
+      "confidence": "high | medium | low",
+      "needs_clarification": false
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "AMB-001",
+      "question": "What should happen when X?",
+      "context": "Found in file:line — the code does Y but it is unclear if that is intentional",
+      "default_assumption": "Assuming Y is correct unless told otherwise",
+      "resolved": false,
+      "resolution": ""
+    }
+  ],
+  "coverage_gaps": [
+    {
+      "file": "relative/path/to/file.py",
+      "lines": "45-67",
+      "intent": "unknown | partial | none",
+      "priority": "P0 | P1 | P2 | P3"
+    }
+  ]
+}

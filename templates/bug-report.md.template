@@ -1,0 +1,57 @@
+# Bug Report: [BUG-XXX]
+
+## Summary
+[One-line description of the bug]
+
+## Intent Violated
+- Intent ID: INT-XXX
+- Expected behavior: [what SHOULD happen according to the spec/docs/schema]
+- Actual behavior: [what DOES happen when the code runs]
+
+## Failing Test
+- File: [absolute path to test file]
+- Test: [test function name]
+- Error type: [AssertionError, TypeError, etc.]
+- Error message:
+```
+[Full error message and relevant traceback]
+```
+
+## Root Cause Analysis
+[Detailed analysis of why the bug exists. Include:]
+- What code path leads to the bug
+- What assumption was wrong
+- Whether the bug is a regression or was always present
+
+## Code Location
+- File: [absolute path to the buggy source file]
+- Line(s): [line numbers]
+- Function: [function or method name]
+
+## Fix Applied
+- File: [absolute path to modified file]
+- Change description: [what was changed and why]
+- Diff:
+```diff
+- old code
++ new code
+```
+- Attempts: [N/3]
+
+## Verification
+- [ ] Failing test now passes
+- [ ] No new test failures introduced (full suite run)
+- [ ] Fix follows project conventions
+- [ ] Fix is minimal (only changes necessary lines)
+- [ ] Fix addresses root cause, not just symptoms
+
+## Classification
+- **Severity**: critical | high | medium | low
+- **Category**: logic | validation | data | security | performance | concurrency
+- **Discovered by**: qa-healer phase [N]
+- **Fix quality score**: [X/10]
+
+## Related
+- Related intents: [INT-XXX, INT-YYY]
+- Related tests: [test file::test name]
+- Similar bugs: [BUG-XXX if pattern detected elsewhere]

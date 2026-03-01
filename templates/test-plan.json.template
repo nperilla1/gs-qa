@@ -1,0 +1,67 @@
+{
+  "project": "",
+  "generated_at": "",
+  "intent_map_ref": "intent-map.json",
+  "phases": [
+    {
+      "phase": "unit",
+      "description": "Unit tests for individual functions and classes in isolation",
+      "tests": [
+        {
+          "intent_id": "INT-001",
+          "test_file": "tests/unit/test_example.py",
+          "test_name": "test_descriptive_behavior_name",
+          "type": "unit",
+          "priority": "P0 | P1 | P2 | P3",
+          "pattern": "fixture | parametrize | factory | mock",
+          "description": "Verifies that [behavior] when [condition] produces [expected outcome]",
+          "fixtures_needed": ["db_session", "make_organization"],
+          "mocks_needed": ["LLMClient", "EmailService"]
+        }
+      ]
+    },
+    {
+      "phase": "integration",
+      "description": "Integration tests that verify component interactions",
+      "tests": []
+    },
+    {
+      "phase": "e2e",
+      "description": "End-to-end tests that verify complete user journeys",
+      "tests": []
+    },
+    {
+      "phase": "visual",
+      "description": "Visual regression tests for frontend pages",
+      "tests": []
+    }
+  ],
+  "shared_fixtures": [
+    {
+      "name": "db_session",
+      "scope": "function",
+      "provides": "Async database session with transaction rollback",
+      "location": "tests/conftest.py"
+    },
+    {
+      "name": "client",
+      "scope": "function",
+      "provides": "httpx AsyncClient bound to the FastAPI app",
+      "location": "tests/conftest.py"
+    },
+    {
+      "name": "make_organization",
+      "scope": "function",
+      "provides": "Factory fixture that creates Organization instances with defaults",
+      "location": "tests/conftest.py"
+    }
+  ],
+  "estimated_test_count": 0,
+  "estimated_coverage_increase": "X% -> Y%",
+  "priority_breakdown": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  }
+}

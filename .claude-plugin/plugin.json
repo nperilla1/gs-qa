@@ -1,0 +1,23 @@
+{
+  "name": "gs-qa",
+  "version": "1.0.0",
+  "description": "Intent-driven autonomous QA system. Discovers what code is supposed to do by reading docs, schemas, and tests — then generates tests that validate behavior against that discovered intent. Works with any codebase, any language, any framework.",
+  "author": {
+    "name": "Nicolas Perilla",
+    "url": "https://grantsmiths.com"
+  },
+  "repository": "https://github.com/nperilla1/gs-qa",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "intent-driven",
+    "autonomous",
+    "pytest",
+    "playwright",
+    "mutation-testing",
+    "self-healing"
+  ],
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}

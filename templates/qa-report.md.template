@@ -1,0 +1,135 @@
+# QA Report: [Project Name]
+
+**Generated**: [ISO timestamp]
+**Duration**: [total time for all phases]
+**Overall Health Score**: [X/100]
+
+## Summary
+
+| Metric | Value |
+|--------|-------|
+| Intent Map Items | X |
+| Tests Generated | X |
+| Tests Passing | X |
+| Tests Failing | X |
+| Bugs Found | X |
+| Bugs Fixed | X |
+| Mutation Score | X% |
+| Line Coverage | X% |
+| Visual Regressions | X |
+
+## Phase Results
+
+### Phase 0: Intent Discovery
+- Sources analyzed: X
+- Intended behaviors found: X
+- By priority: P0=X, P1=X, P2=X, P3=X
+- Ambiguities: X (resolved: X, pending: X)
+- User journeys mapped: X
+
+### Phase 1: Static Analysis
+- Linter: [tool name and version]
+- Issues found: X
+- Issues auto-fixed: X
+- Issues remaining: X
+- By severity: error=X, warning=X, info=X
+
+### Phase 2: Test Planning
+- Test plan items: X
+- By priority: P0=X, P1=X, P2=X, P3=X
+- By type: unit=X, integration=X, e2e=X, visual=X
+- Shared fixtures planned: X
+
+### Phase 3: Test Generation
+- Backend test files: X (Y tests)
+- Frontend test files: X (Y tests)
+- Integration test files: X (Y tests)
+- Total tests generated: X
+
+### Phase 4: Quality Gate
+- Tests reviewed: X
+- Passed quality gate (>= 7/10): X
+- Failed quality gate: X
+- Regenerated: X
+- Average quality score: X/10
+
+### Phase 5: Execution + Healing
+- First run results: X pass, X fail, X error
+- Failures diagnosed: X
+  - Test bugs: X (fixed: X)
+  - App bugs: X (reported: X)
+  - Flaky: X (stabilized: X)
+- After healing: X pass, X fail
+
+### Phase 6: Mutation Testing
+- Mutants generated: X
+- Mutants killed: X
+- Mutants survived: X
+- Kill rate: X%
+- Weakest modules: [list modules with lowest kill rate]
+
+### Phase 7: Bug Fixing
+- App bugs attempted: X
+- Bugs fixed: X
+- Bugs unfixed: X
+- Average fix quality score: X/10
+- Fix attempts: X total (Y average per bug)
+
+### Phase 8: Review
+- Final review issues: X
+- By severity: critical=X, high=X, medium=X, low=X
+- Anti-patterns detected: X
+- Recommendations: X
+
+### Phase 9: Visual QA
+- Pages screenshotted: X
+- Viewports tested: X
+- Regressions found: X
+- Regressions by page: [list]
+
+## Critical Issues
+
+[List any P0/critical issues that remain unresolved]
+
+1. **[CRITICAL]** [Description] — [file:line]
+   - Impact: [what happens if this is not fixed]
+   - Recommended action: [what to do]
+
+## Bugs Found and Fixed
+
+| Bug ID | Severity | Description | Status | Fix Score |
+|--------|----------|-------------|--------|-----------|
+| BUG-001 | high | [description] | Fixed | 8.2/10 |
+| BUG-002 | medium | [description] | Unfixed | N/A |
+
+## Coverage Analysis
+
+### By Module
+| Module | Line Coverage | Intent Coverage | Mutation Score |
+|--------|--------------|-----------------|----------------|
+| src/services/ | X% | X/Y intents | X% |
+| src/api/ | X% | X/Y intents | X% |
+| src/models/ | X% | X/Y intents | X% |
+
+### Uncovered P0 Intents
+[List any P0 intents that still lack test coverage after the sweep]
+
+## Recommendations
+
+1. **[Priority]** [Recommendation]
+   - Why: [reasoning]
+   - Effort: low | medium | high
+
+2. **[Priority]** [Recommendation]
+   - Why: [reasoning]
+   - Effort: low | medium | high
+
+## Artifacts Generated
+
+| File | Purpose |
+|------|---------|
+| intent-map.json | Intent Map with X behaviors |
+| test-plan.json | Test plan with X items |
+| qa-report.md | This report |
+| bug-reports/BUG-*.md | X bug reports |
+| visual-baselines/ | X screenshots |
