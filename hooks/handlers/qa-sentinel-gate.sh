@@ -8,8 +8,16 @@ set -euo pipefail
 # Read tool input from stdin
 INPUT=$(cat)
 
-# Extract file path from the tool input
-FILE_PATH=$(echo "$INPUT" | grep -oP '"file_path"\s*:\s*"([^"]+)"' | head -1 | sed 's/.*"file_path"\s*:\s*"//;s/"//' 2>/dev/null || echo "")
+# Extract file path from the tool input (macOS-compatible, no grep -P)
+FILE_PATH=$(echo "$INPUT" | python3 -c "
+import sys, json
+try:
+    data = json.load(sys.stdin)
+    ti = data.get('tool_input', data)
+    print(ti.get('file_path', ''))
+except:
+    print('')
+" 2>/dev/null)
 
 # Only check test files
 if [[ -z "$FILE_PATH" ]]; then
@@ -43,14 +51,12 @@ if grep -q "import requests" "$FILE_PATH" 2>/dev/null; then
   WARNINGS+="- WARNING: Test imports requests directly — use httpx/respx or test client instead\n"
 fi
 
-if grep -qP '(assertTrue|assertEqual)\(True' "$FILE_PATH" 2>/dev/null; then
+if grep -qE 'assert\s+True|assertTrue\(True|assertEqual\(True' "$FILE_PATH" 2>/dev/null; then
   WARNINGS+="- WARNING: Tautological assertion found (always passes)\n"
 fi
 
-if grep -qP 'except.*:$' "$FILE_PATH" 2>/dev/null; then
-  if grep -qP 'except.*:\s*$' "$FILE_PATH" 2>/dev/null; then
-    WARNINGS+="- WARNING: Bare except clause — tests should assert specific exceptions\n"
-  fi
+if grep -qE 'except\s*:' "$FILE_PATH" 2>/dev/null; then
+  WARNINGS+="- WARNING: Bare except clause — tests should assert specific exceptions\n"
 fi
 
 if grep -q "mock.patch.*autospec=False" "$FILE_PATH" 2>/dev/null; then

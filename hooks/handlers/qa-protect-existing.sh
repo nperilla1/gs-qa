@@ -17,7 +17,15 @@ fi
 INPUT=$(cat)
 
 # Extract file path
-FILE_PATH=$(echo "$INPUT" | grep -oP '"file_path"\s*:\s*"([^"]+)"' | head -1 | sed 's/.*"file_path"\s*:\s*"//;s/"//' 2>/dev/null || echo "")
+FILE_PATH=$(echo "$INPUT" | python3 -c "
+import sys, json
+try:
+    data = json.load(sys.stdin)
+    ti = data.get('tool_input', data)
+    print(ti.get('file_path', ''))
+except:
+    print('')
+" 2>/dev/null)
 
 if [[ -z "$FILE_PATH" ]]; then
   exit 0
